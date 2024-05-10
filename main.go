@@ -147,7 +147,7 @@ func main() {
 
 func getCommitsFromDate(repoDir string, date time.Time) ([]RepoData, error) {
 	// Use the Git CLI to get the commits from the given date to the latest
-	cmd := exec.Command("git", "log", "--since", date.Format("2006-01-02"), "--format=%H,%ct", "-n", "100")
+	cmd := exec.Command("git", "log", "--since", date.Format("2006-01-02"), "--format=%H,%ct")
 	cmd.Dir = repoDir
 	output, err := cmd.Output()
 	if err != nil {
